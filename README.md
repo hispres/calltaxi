@@ -476,7 +476,7 @@ kubectl create configmap apiurl --from-literal=url=http://payment:8080 -n tutori
 
 - 서킷 브레이커는 시스템을 안정되게 운영할 수 있게 해줬지만, 사용자의 요청이 급증하는 경우, 오토스케일 아웃이 필요하다.
 
->- 단, 부하가 제대로 걸리기 위해서, recipe 서비스의 리소스를 줄여서 재배포한다.(calltaxi/taxi/kubernetes/deployment.yml 수정)
+>- 단, 부하가 제대로 걸리기 위해서, taxi 서비스의 리소스를 줄여서 재배포한다.(calltaxi/taxi/kubernetes/deployment.yml 수정)
 
 ```yaml
           resources:
@@ -490,7 +490,7 @@ kubectl create configmap apiurl --from-literal=url=http://payment:8080 -n tutori
 ```
 kubectl expose deploy taxi --type=ClusterIP --port=8080 -n tutorial
 ```
-- recipe 시스템에 replica를 자동으로 늘려줄 수 있도록 HPA를 설정한다. 설정은 CPU 사용량이 15%를 넘어서면 replica를 10개까지 늘려준다.
+- taxi 시스템에 replica를 자동으로 늘려줄 수 있도록 HPA를 설정한다. 설정은 CPU 사용량이 15%를 넘어서면 replica를 10개까지 늘려준다.
 ```
 kubectl autoscale deploy taxi --min=1 --max=10 --cpu-percent=15 -n tutorial
 ```
