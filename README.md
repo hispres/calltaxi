@@ -548,8 +548,8 @@ hystrix:
 siege -c100 -t60S -r10 -v --content-type "application/json" 'http://gateway:8080/calls/1 PUT {"userId": "user01", "destination": "jinju", "status": "pay", "price":100}'
 ```
 - 부하 발생하여 CB가 발동하여 요청 실패처리하였고, 밀린 부하가 다시 처리되면서 호출을 서비스 시작
-- 
-![05 CB발생결과](https://user-images.githubusercontent.com/77368578/108169446-1210cf00-713c-11eb-95d1-
+
+![05 CB발생결과](https://user-images.githubusercontent.com/77368578/108169446-1210cf00-713c-11eb-95d1-9bf594c32411.png)
 
 # 무정지 배포
 
